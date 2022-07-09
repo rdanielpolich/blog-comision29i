@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1657318063731,
+      "user": "1",
+      "fecha": "2022-07-08T22:07:43.731Z",
+      "title": "RollingCoders Campus",
+      "texto": "### Arranca el Campus de Rolling!\n----\n![](https://media.giphy.com/media/26n7b7PjSOZJwVCmY/giphy.gif)\n\n*Listo para arrancar la experiencia más grosa de todas??*"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "id": "1",
+    "name": "typicode",
+    "email": "test@test.com",
+    "password": "12345678"
+  }
+}
