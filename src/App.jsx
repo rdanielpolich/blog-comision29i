@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/edit" element={<EditScreen />} />
-        <Route path="/post/:id" element={<EditScreen />} />
+        {/* <Route path="/post/:id" element={<EditScreen />} /> */}
         <Route path="*" element={<ErrorScreen />} />
       </Routes>
     </BrowserRouter>
