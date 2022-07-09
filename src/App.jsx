@@ -4,6 +4,7 @@ import EditScreen from "./pages/EditScreen";
 import ErrorScreen from "./pages/ErrorScreen";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
+import PostScreen from "./pages/PostScreen";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/edit" element={<EditScreen />} />
-        <Route path="/post/:id" element={<EditScreen />} />
+        <Route path="/post" element={<PostScreen />} />
         <Route path="*" element={<ErrorScreen />} />
       </Routes>
     </BrowserRouter>
