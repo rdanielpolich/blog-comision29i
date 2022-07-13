@@ -7,7 +7,9 @@ import LoginScreen from "./pages/LoginScreen";
 import PostScreen from "./pages/PostScreen";
 
 function App() {
+
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
@@ -19,6 +21,7 @@ function App() {
         <Route path="*" element={<ErrorScreen />} />
       </Routes>
     </BrowserRouter>
+
   );
 }
 
