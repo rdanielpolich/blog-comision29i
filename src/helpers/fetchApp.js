@@ -1,3 +1,33 @@
+const url = "http://localhost:8080/api";
+
+export const postUsuario = async (datos) => {
+  const resp = await fetch(`${url}/usuarios`, {
+    method: "POST",
+    body: JSON.stringify(datos),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+
+  const data = await resp.json();
+
+  return data;
+};
+
+export const postAuth = async (datos) => {
+  const resp = await fetch(`${url}/auth/login`, {
+    method: "POST",
+    body: JSON.stringify(datos),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+
+  const data = await resp.json();
+
+  return data;
+};
+
 export const getPosts = async () => {
   const resp = await fetch("http://localhost:8080/posts");
   const data = await resp.json();
