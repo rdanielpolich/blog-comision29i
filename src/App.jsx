@@ -14,7 +14,6 @@ function App() {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen />} />
-
         <Route path="/edit" element={<EditScreen />} />
         <Route path="/post/:id" element={<PostScreen />} />
         <Route path="*" element={<ErrorScreen />} />

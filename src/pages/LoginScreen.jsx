@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/login.css";
 import { postAuth } from "../helpers/fetchApp";
 
 const LoginScreen = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
@@ -16,6 +19,8 @@ const LoginScreen = () => {
       console.log(respuesta);
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
+        localStorage.setItem("token", JSON.stringify(respuesta.token));
+        navigate("/");
       } else {
         setMessage(respuesta);
       }

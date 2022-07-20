@@ -1,20 +1,25 @@
-import React from 'react'
- 
+import React from "react";
+import { Link } from "react-router-dom";
+import moment from "moment";
 
-const Post = (props) => {
-    const {id,title,date}=props.post
+const Post = ({ post }) => {
+  const { author, title, date, id } = post;
   return (
     <div className="card mt-4">
-  <div className="card-header">
-    <h5>{title}</h5>
-  </div>
-  <div className="card-body">
-    <h5 className="card-title text-secondary">Special title treatment</h5>
-    {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-    <a href="#" className="btn btn-primary">Ver mas</a>
-  </div>
-</div>
-  )
-}
+      <div className="card-header">
+        <h5>{title}</h5>
+      </div>
+      <div className="card-body d-flex justify-content-between align-items-center">
+        <span className="card-title text-secondary">
+          {author.nombre} - {moment(date).format("LLL")}
+        </span>
+        <Link className="btn btn-primary" to={`/post/${id}`}>
+          Ver más
+        </Link>
+        {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
+      </div>
+    </div>
+  );
+};
 
-export default Post
+export default Post;
