@@ -1,5 +1,6 @@
 const url = "http://localhost:8080/api";
 
+//REgistrar un usuario
 export const postUsuario = async (datos) => {
   const resp = await fetch(`${url}/usuarios`, {
     method: "POST",
@@ -14,6 +15,7 @@ export const postUsuario = async (datos) => {
   return data;
 };
 
+//Login de usuario
 export const postAuth = async (datos) => {
   const resp = await fetch(`${url}/auth/login`, {
     method: "POST",
@@ -28,6 +30,7 @@ export const postAuth = async (datos) => {
   return data;
 };
 
+//Traer todos los blogs
 export const getBlog = async () => {
   const resp = await fetch(`${url}/blog`, {
     method: "GET",
@@ -41,6 +44,7 @@ export const getBlog = async () => {
   return data;
 };
 
+//Traer una entrada de blog por su id
 export const getBlogById = async (id) => {
   const resp = await fetch(`${url}/blog/${id}`, {
     method: "GET",
