@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 import EditScreen from "./pages/EditScreen";
 import ErrorScreen from "./pages/ErrorScreen";
@@ -9,6 +10,7 @@ import PostScreen from "./pages/PostScreen";
 function App() {
   return (
     <BrowserRouter>
+    <NavBar />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
@@ -21,3 +23,4 @@ function App() {
 }
 
 export default App;
+
