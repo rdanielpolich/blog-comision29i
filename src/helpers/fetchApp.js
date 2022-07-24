@@ -45,8 +45,8 @@ export const postAuth = async (datos) => {
 };
 
 //Traer todos los blogs
-export const getBlog = async () => {
-  const resp = await fetch(`${url}/blogs`, {
+export const getBlog = async (registro = 0) => {
+  const resp = await fetch(`${url}/blogs?desde=${registro}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",

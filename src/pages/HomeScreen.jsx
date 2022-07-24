@@ -4,22 +4,46 @@ import { Link } from "react-router-dom";
 
 import { getBlog } from "../helpers/fetchApp";
 import Post from "../components/Post";
+import BtnPaginacion from "../components/BtnPaginacion";
 
 const HomeScreen = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({
+    blogs: [],
+    total: 0,
+  });
+
+  const [registro, setRegistro] = useState(0);
+
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
   useEffect(() => {
-    getBlog().then((respuesta) => {
+    getBlog(registro).then((respuesta) => {
       console.log(respuesta);
       if (respuesta?.msg) {
         setMensaje(respuesta.msg);
       } else {
-        setPosts(respuesta.blogs);
+        setPosts({
+          blogs: respuesta.blogs,
+          total: respuesta.total,
+        });
       }
       setLoading(false);
     });
-  }, []);
+  }, [registro]);
+
+  const nextPage = () => {
+    if (posts.total - registro > 5) {
+      console.log("OK");
+      setRegistro(registro + 5);
+    }
+  };
+
+  const prevPage = () => {
+    if (registro > 0) {
+      console.log("OK");
+      setRegistro(registro - 5);
+    }
+  };
 
   return (
     <div className="container">
@@ -42,11 +66,19 @@ const HomeScreen = () => {
               </Link>
             </div>
           ) : (
-            <div className="col-12 col-md-8 offset-md-2">
-              {posts.map((post) => (
-                <Post post={post} key={post._id} />
-              ))}
-            </div>
+            <>
+              <div className="col-12 col-md-8 offset-md-2">
+                {posts.blogs.map((post) => (
+                  <Post post={post} key={post._id} />
+                ))}
+              </div>
+              <BtnPaginacion
+                registro={registro}
+                total={posts.total}
+                nextPage={nextPage}
+                prevPage={prevPage}
+              />
+            </>
           )}
         </div>
       </div>
