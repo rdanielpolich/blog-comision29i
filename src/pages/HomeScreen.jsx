@@ -44,7 +44,7 @@ const HomeScreen = () => {
           ) : (
             <div className="col-12 col-md-8 offset-md-2">
               {posts.map((post) => (
-                <Post post={post} key={post.id} />
+                <Post post={post} key={post._id} />
               ))}
             </div>
           )}

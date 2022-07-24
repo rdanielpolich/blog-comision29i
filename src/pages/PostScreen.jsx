@@ -33,6 +33,7 @@ const PostScreen = () => {
     <div>
       <div className="container col-12 col-md-8 offset-md-2 mt-3 justify-content-center ">
         <h1>POSTS</h1>
+        <hr />
         {loading ? (
           <h3>Cargando...</h3>
         ) : mensaje ? (

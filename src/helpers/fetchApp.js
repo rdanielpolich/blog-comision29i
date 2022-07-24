@@ -1,5 +1,19 @@
 const url = "http://localhost:8080/api";
 
+//traer usuarios
+export const validarToken = async () => {
+  const resp = await fetch(`${url}/usuarios/validar`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      "x-token": JSON.parse(localStorage.getItem("token")),
+    },
+  });
+  const data = await resp.json();
+
+  return data;
+};
+
 //REgistrar un usuario
 export const postUsuario = async (datos) => {
   const resp = await fetch(`${url}/usuarios`, {
@@ -32,7 +46,7 @@ export const postAuth = async (datos) => {
 
 //Traer todos los blogs
 export const getBlog = async () => {
-  const resp = await fetch(`${url}/blog`, {
+  const resp = await fetch(`${url}/blogs`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -46,13 +60,28 @@ export const getBlog = async () => {
 
 //Traer una entrada de blog por su id
 export const getBlogById = async (id) => {
-  const resp = await fetch(`${url}/blog/${id}`, {
+  const resp = await fetch(`${url}/blogs/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
       "x-token": JSON.parse(localStorage.getItem("token")),
     },
   });
+  const data = await resp.json();
+
+  return data;
+};
+
+export const postBlog = async (datos) => {
+  const resp = await fetch(`${url}/blogs`, {
+    method: "POST",
+    body: JSON.stringify(datos),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      "x-token": JSON.parse(localStorage.getItem("token")),
+    },
+  });
+
   const data = await resp.json();
 
   return data;

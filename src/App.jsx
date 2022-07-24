@@ -6,17 +6,23 @@ import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 import PostScreen from "./pages/PostScreen";
 import RegistroScreen from "./pages/RegistroScreen";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
+import RoutesDos from "./routes/RoutesDos";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeScreen />} />
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoutes>
+              <RoutesDos />
+            </ProtectedRoutes>
+          }
+        />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen />} />
-        <Route path="/edit" element={<EditScreen />} />
-        <Route path="/post/:id" element={<PostScreen />} />
-        <Route path="*" element={<ErrorScreen />} />
       </Routes>
     </BrowserRouter>
   );
