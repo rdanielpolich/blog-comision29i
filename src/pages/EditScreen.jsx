@@ -34,6 +34,7 @@ const EditScreen = () => {
     <>
       <div className="container">
         <div className="row d-flex justify-content-center">
+          <h3 className="text-center">Crea tu entrada de blog</h3>
           <div className="col-6 mt-5 ">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">

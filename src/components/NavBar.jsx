@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../asset/logo.png";
 import "../css/nav.css";
+import SearchApp from "./SearchApp";
 
 const NavBar = () => {
   return (
@@ -23,6 +24,7 @@ const NavBar = () => {
                 CREATE
               </NavLink>
             </li>
+            <SearchApp />
           </ul>
         </div>
       </div>

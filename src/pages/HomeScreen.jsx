@@ -50,6 +50,7 @@ const HomeScreen = () => {
       <div className="row">
         <div className="col">
           <h1 className="text-center">Bienvenido al Blog!</h1>
+
           <hr />
 
           {loading ? (
